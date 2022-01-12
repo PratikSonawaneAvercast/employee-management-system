@@ -1,0 +1,35 @@
+<mat-card style="margin: 10px;">
+    <mat-card-title>Update employee details</mat-card-title><br><br>
+    <mat-card-content style="margin: 10px;">
+        <div *ngIf="dataLoaded">
+            <form [formGroup]="editEmployeeForm" (submit)="updateEmployee()">
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>UserName</mat-label>
+                        <input matInput placeholder="UserName" formControlName="username">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email Address</mat-label>
+                        <input matInput placeholder="Email Address" formControlName="email">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput placeholder="Phone Number" formControlName="phone">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <button class="btnColor" mat-raised-button color="primary">Update</button>
+                </p>
+
+            </form>
+        </div>
+    </mat-card-content>
+</mat-card>

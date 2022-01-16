@@ -1,5 +1,12 @@
 <mat-card>
-    <h2 *ngIf="dataSource">Totol Employee Count is {{dataSource.length}}</h2>
+    <h2 *ngIf="dataSource">Totol Employee Count is {{dataSource1.length}}</h2>
+    <div fxLayout fxLayoutAlign="center center">
+        <mat-form-field appearance="fill">
+            <mat-label>Search Employee</mat-label>
+            <input matInput placeholder="Search">
+        </mat-form-field>
+    </div>
+
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -34,11 +41,12 @@
             <td mat-cell *matCellDef="let element">
                 <a [routerLink]="['..','view', element.id]">View</a> |
                 <a [routerLink]="['..','edit', element.id]">Edit</a> |
-                <a [routerLink]="['delete', element.id]">Delete</a>
+                <a [routerLink]="[]" (click)="clickMethod()">Delete</a>
             </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
 </mat-card>

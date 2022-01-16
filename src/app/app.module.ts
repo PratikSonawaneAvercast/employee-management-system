@@ -14,13 +14,18 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule} from '@angular/material/button';
 import { MatTableModule} from '@angular/material/table';
 import { LoginComponent } from './core/login/login.component';
+import { MatDialogModule} from '@angular/material/dialog';
+import { DeleteConfirmationDailogComponent } from './shared/delete-confirmation-dailog/delete-confirmation-dailog.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeDashboardComponent,
-    LoginComponent
+    LoginComponent,
+    DeleteConfirmationDailogComponent,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,9 +38,14 @@ import { LoginComponent } from './core/login/login.component';
     HttpClientModule,
     MatListModule,
     MatButtonModule,  
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MatIconModule,
+    FormsModule
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DeleteConfirmationDailogComponent]
 })
 export class AppModule { }

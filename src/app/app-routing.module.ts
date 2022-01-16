@@ -5,17 +5,19 @@ import { DeleteEmployeeComponent } from './employee/delete-employee/delete-emplo
 import { EditEmployeeComponent } from './employee/edit-employee/edit-employee.component';
 import { ListEmployeeComponent } from './employee/list-employee/list-employee.component';
 import { ViewEmployeeComponent } from './employee/view-employee/view-employee.component';
+import { LoginComponent } from './core/login/login.component';
 
 
 const routes: Routes = [
+  {path: 'login', component:LoginComponent,canActivate : []},
   { path: 'employee',
     children:[
-      { path: '', component:ListEmployeeComponent},
-      { path: 'list', component:ListEmployeeComponent},
-      { path: 'delete/:id',component:DeleteEmployeeComponent},
-      { path: 'edit/:id', component:EditEmployeeComponent},
-      { path: 'view/:id', component:ViewEmployeeComponent},
-      { path: 'create', component:AddEmployeeComponent},
+      { path: '', component:ListEmployeeComponent,canActivate : []},
+      { path: 'list', component:ListEmployeeComponent,canActivate : []},
+      { path: 'delete/:id',component:DeleteEmployeeComponent,canActivate : []},
+      { path: 'edit/:id', component:EditEmployeeComponent,canActivate : []},
+      { path: 'view/:id', component:ViewEmployeeComponent,canActivate : []},
+      { path: 'create', component:AddEmployeeComponent,canActivate : []}
     ] 
   }
 ];

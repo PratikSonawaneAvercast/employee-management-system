@@ -1,4 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.input.ng-invalid.ng-dirty {
+    border-bottom-color: #e91e63 !important;
+    box-shadow: #e91e63 !important;
+}
+
+.confirm-dialog-Container .mat-dialog-container {
+    border-radius: .25em .25em .4em .4em;
+    padding: 0px;
+}
+
+.confirm-dialog-Container .content-container {
+    margin: 5px 5px 15px 5px;
+    color: #8f9cb5;
+    display: flex;
+}
+
+.confirm-dialog-Container #close-icon {
+    margin-left: auto;
+    order: 2;
+    font-weight: bolder;
+}
+
+.confirm-dialog-Container #close-icon:hover {
+    cursor: pointer;
+}
+
+.confirm-dialog-Container #no-button {
+    width: 50%;
+    height: 50%;
+    background-color: #fc7169;
+    color: white;
+    border-radius: 0px;
+}
+
+.confirm-dialog-Container #yes-button {
+    width: 50%;
+    height: 50%;
+    background-color: #b6bece;
+    color: white;
+    border-radius: 0px;
+}
+
+.confirm-dialog-Container span.content-span {
+    padding: 35px 16px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.btn-dialog-close {
+    width: 45px;
+    min-width: 0px;
+    height: 40px;
+    padding: 0px;
+}

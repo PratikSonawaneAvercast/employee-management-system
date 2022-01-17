@@ -11,7 +11,7 @@ import { MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input';
 import { MatIconModule} from '@angular/material/icon';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
 import { MatTableModule} from '@angular/material/table'
 import { MatToolbarModule} from '@angular/material/toolbar';
@@ -19,6 +19,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatDialogModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    FormsModule,
+    ToastrModule.forRoot()
   ],
 
   providers:[

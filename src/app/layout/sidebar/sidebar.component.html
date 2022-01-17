@@ -6,9 +6,6 @@
         <a (click)="$event.preventDefault()" [routerLink]='["/employee","list"]' routerLinkActive="router-link-active">List Employee</a>
     </mat-list-item>
     <mat-list-item role="logout">
-        <a routerLink="/login">Logout</a>
-    </mat-list-item>
-    <mat-list-item role="logout">
-        <a routerLink="employee/addexperience">Add Experience</a>
+        <a routerLink="/login" (click)="logout()">Logout</a>
     </mat-list-item>
 </mat-list>

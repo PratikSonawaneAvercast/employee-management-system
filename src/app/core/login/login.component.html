@@ -15,14 +15,24 @@
                                     </div>
                                     <form #signInForm="ngForm" class="col s12 white" (ngSubmit)="onSubmit(signInForm)">
                                         <label for="inputEmail" class="sr-only">Email Address</label>
-                                        <input type="text" #email ngModel id="inputEmail" class="form-control" name="email" placeholder="Email" style="margin-top: 10px;" ngModel required autofocus>
+                                        <input type="email" class="form-control" [(ngModel)]="formData.email" #email="ngModel" id="inputEmail" name="email" placeholder="Email" style="margin-top: 10px;" ngModel required autofocus>
+                                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                                            <div *ngIf="email.errors?.required">
+                                                Email is required
+                                            </div>
+                                        </div>
                                         <label for="inputPassword" class="sr-only">Password</label>
-                                        <input type="password" #password ngModel id="inputPassword" class="form-control" name="password" placeholder="Password" autocomplete="on" style="margin-top: 10px;" ngModel required>
+                                        <input type="password" #password="ngModel" [(ngModel)]="formData.password" id="inputPassword" class="form-control" name="password" placeholder="Password" autocomplete="on" style="margin-top: 10px;" ngModel required>
+                                        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                                            <div *ngIf="password.errors?.required">
+                                                Password is required
+                                            </div>
+                                        </div>
 
                                         <button class="btn btn-primary btn-block" type="submit">Sign in</button>
-                                        <div *ngIf="isLoginError" style="color: red;" class="red-text center error-message">
+                                        <!-- <div *ngIf="isLoginError" style="color: red;" class="red-text center error-message">
                                             Incorrect email or password
-                                        </div>
+                                        </div> -->
                                         <!-- <div class="alert alert-danger" role="alert" *ngIf="isFormValid">
                                             Please fill all fields.
                                         </div>

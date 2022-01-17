@@ -6,12 +6,13 @@ import { DeleteConfirmationDailogComponent } from './delete-confirmation-dailog/
 @Injectable({
   providedIn: 'root'
 })
+
 export class DialogService {
 
   constructor(private dialog: MatDialog) { }
 
   openConfirmDialog(){
-    this.dialog.open(DeleteConfirmationDailogComponent,{
+   return this.dialog.open(DeleteConfirmationDailogComponent,{
       width: '390px',
       panelClass: 'confirm-dialog-Container',
       disableClose: true

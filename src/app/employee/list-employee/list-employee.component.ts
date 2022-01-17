@@ -40,10 +40,8 @@ export class ListEmployeeComponent implements OnInit {
       });      
   }
 
-  applyFilter(value: string) {
-    document.getElementById('xyz');
-    this.dataSource.filter = value.trim().toLocaleLowerCase();
-    const filterValue = value;
+  applyFilter(event: any) {
+    const filterValue = event.target.value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 

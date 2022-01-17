@@ -3,9 +3,10 @@
     <div fxLayout fxLayoutAlign="center center">
         <mat-form-field appearance="fill">
             <mat-label>Search Employee</mat-label>
-            <input matInput placeholder="Search">
+            <input matInput placeholder="Search" (keyup)="applyFilter($event)">
         </mat-form-field>
     </div>
+
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!--- Note that these columns can be defined in any order.

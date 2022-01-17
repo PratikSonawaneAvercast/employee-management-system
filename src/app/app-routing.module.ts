@@ -9,15 +9,15 @@ import { LoginComponent } from './core/login/login.component';
 
 
 const routes: Routes = [
-  {path: 'login', component:LoginComponent,canActivate : []},
+  {path: 'login', component:LoginComponent},
   { path: 'employee',
     children:[
-      { path: '', component:ListEmployeeComponent,canActivate : []},
+      { path: '', component:ListEmployeeComponent},
       { path: 'list', component:ListEmployeeComponent,canActivate : []},
       { path: 'delete/:id',component:DeleteEmployeeComponent,canActivate : []},
       { path: 'edit/:id', component:EditEmployeeComponent,canActivate : []},
       { path: 'view/:id', component:ViewEmployeeComponent,canActivate : []},
-      { path: 'create', component:AddEmployeeComponent,canActivate : []}
+      { path: 'create', component:AddEmployeeComponent,canActivate : []},
     ] 
   }
 ];

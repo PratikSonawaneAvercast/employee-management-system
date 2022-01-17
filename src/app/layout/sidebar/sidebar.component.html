@@ -1,14 +1,14 @@
 <mat-list role="list" class="sider-bar">
     <mat-list-item role="listitem">
-        <a href="employee/create">Add Employee</a>
+        <a routerLink="/employee/create">Add Employee</a>
     </mat-list-item>
     <mat-list-item role="listitem">
-        <a href="employee/list">List Employee</a>
+        <a (click)="$event.preventDefault()" [routerLink]='["/employee","list"]' routerLinkActive="router-link-active">List Employee</a>
     </mat-list-item>
     <mat-list-item role="logout">
-        <a href="login">Logout</a>
+        <a routerLink="/login">Logout</a>
     </mat-list-item>
     <mat-list-item role="logout">
-        <a href="employee/addexperience">Add Experience</a>
+        <a routerLink="employee/addexperience">Add Experience</a>
     </mat-list-item>
 </mat-list>

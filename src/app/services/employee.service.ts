@@ -26,7 +26,7 @@ export class EmployeeService {
       return this.http.post(this.baseUrl +'users/',empObj);
     }
 
-    deleteEmployee(id: any){
+      deleteEmployee(id: any){
       return this.http.delete(this.baseUrl +'users/' + id)
     }
 

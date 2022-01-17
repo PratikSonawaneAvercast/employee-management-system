@@ -4,18 +4,22 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignInData } from 'src/app/model/signInData';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   isLoginError : boolean = false;
+  formData: any = {};
 
   constructor(private authenticationService: AuthenticationService, 
-    private router : Router) { }
+    private router : Router,
+    private toastr : ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -41,6 +45,7 @@ export class LoginComponent implements OnInit {
         //this.router.navigate(['employee']);
         try{
           localStorage.setItem("token", result.token);
+          this.toastr.success("Login successful!")
           this.router.navigate(['/employee','list']);
         }catch(e:any){
             console.log(e);

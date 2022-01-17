@@ -17,6 +17,7 @@ import { LoginComponent } from './core/login/login.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import { DeleteConfirmationDailogComponent } from './shared/delete-confirmation-dailog/delete-confirmation-dailog.component';
 import {MatIconModule} from '@angular/material/icon';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -41,8 +42,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatTableModule,
     MatDialogModule,
     MatIconModule,
-    FormsModule
-
+    FormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

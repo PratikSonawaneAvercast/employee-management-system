@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-edit-employee',
@@ -17,11 +19,11 @@ export class EditEmployeeComponent implements OnInit {
   editEmployeeForm: FormGroup = new FormGroup({});
   dataLoaded: boolean = false;
   
-  
-  constructor(private activatedRoute: ActivatedRoute,
+  constructor(
+    private activatedRoute: ActivatedRoute,
     private employeeService: EmployeeService,
     private formBuilder: FormBuilder,
-    private _snackBar: MatSnackBar) { }
+    private toastr : ToastrService) { }
 
   ngOnInit(): void {
     //to check the data loaded
@@ -43,9 +45,9 @@ export class EditEmployeeComponent implements OnInit {
           //console.log(this.employeeDetails);
           // Buid the edit form
           this.editEmployeeForm = this.formBuilder.group({
-            'username': new FormControl(this.employeeDetails.name),
-            'email': new FormControl(this.employeeDetails.email),
-            'phone': new FormControl(this.employeeDetails.phone)
+            'username': new FormControl(this.employeeDetails.name,[Validators.required, Validators.minLength(3)]),
+            'email': new FormControl(this.employeeDetails.email,[Validators.required, Validators.email]),
+            'phone': new FormControl(this.employeeDetails.phone, [Validators.required, Validators.maxLength(10)])
           })
           this.dataLoaded = true;
       }) 
@@ -57,9 +59,9 @@ export class EditEmployeeComponent implements OnInit {
 
   updateEmployee(){
     this.employeeService.updateEmployee(this.employeeId, this.editEmployeeForm.value).subscribe(data =>{
-      this._snackBar.open("Employee updated successfully");
+      this.toastr.success("Employee updated successfully")
     }, err=>{
-      this._snackBar.open("Something went wrong try agian later!");
+      this.toastr.success("Something went wrong try agian later!")
       }
     )
   }

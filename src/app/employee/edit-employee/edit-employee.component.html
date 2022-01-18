@@ -8,6 +8,12 @@
                         <mat-label>UserName</mat-label>
                         <input matInput placeholder="UserName" formControlName="username">
                         <mat-icon matSuffix>profile</mat-icon>
+                        <mat-error *ngIf="editEmployeeForm.controls['username'].errors && editEmployeeForm.controls['username'].hasError('required')">
+                            Username is required
+                        </mat-error>
+                        <mat-error *ngIf="editEmployeeForm.controls['username'].errors && editEmployeeForm.controls['username'].hasError('minlength')">
+                            User name should minimum three character
+                        </mat-error>
                     </mat-form-field>
                 </p>
                 <p>
@@ -15,6 +21,12 @@
                         <mat-label>Email Address</mat-label>
                         <input matInput placeholder="Email Address" formControlName="email">
                         <mat-icon matSuffix>email</mat-icon>
+                        <mat-error *ngIf="editEmployeeForm.controls['email'].errors && editEmployeeForm.controls['email'].hasError('required')">
+                            Email address is required
+                        </mat-error>
+                        <mat-error *ngIf="editEmployeeForm.controls['email'].errors && editEmployeeForm.controls['email'].hasError('email')">
+                            Invalid Email Address
+                        </mat-error>
                     </mat-form-field>
                 </p>
                 <p>
@@ -22,13 +34,17 @@
                         <mat-label>Phone Number</mat-label>
                         <input matInput placeholder="Phone Number" formControlName="phone">
                         <mat-icon matSuffix>phone</mat-icon>
+                        <mat-error *ngIf="editEmployeeForm.controls['phone'].errors && editEmployeeForm.controls['phone'].hasError('required')">
+                            Phone number required
+                        </mat-error>
+                        <mat-error *ngIf="editEmployeeForm.controls['phone'].errors && editEmployeeForm.controls['phone'].hasError('maxlength')">
+                            Phone number should be 10 digit
+                        </mat-error>
                     </mat-form-field>
                 </p>
-
                 <p>
-                    <button class="btnColor" mat-raised-button color="primary">Update</button>
+                    <button mat-raised-button color="primary" [disabled]="!editEmployeeForm.valid">Update</button>
                 </p>
-
             </form>
         </div>
     </mat-card-content>
